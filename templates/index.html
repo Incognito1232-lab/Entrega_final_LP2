@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Musical</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Columna izquierda -->
+        <div class="left">
+            <!-- Bloque 1: Buscar artista -->
+            <div class="block">
+                <div class="form-section">
+                    <h2>Ingresar Artista</h2>
+                    <form id="artist-form">
+                        <input type="text" name="artist_name" placeholder="Nombre del artista">
+                        <button type="submit">Buscar</button>
+                    </form>
+                </div>
+                <div class="content" id="artist-result">
+                    <!-- Resultado de la búsqueda del artista -->
+                </div>
+            </div>
+            <!-- Bloque 2: Buscar género -->
+            <div class="block">
+                <div class="form-section">
+                    <h2>Introducir Género</h2>
+                    <form id="genre-form">
+                        <input type="text" name="genre_name" placeholder="Nombre del género">
+                        <button type="submit">Buscar</button>
+                    </form>
+                </div>
+                <div class="content" id="genre-result">
+                    <!-- Resultado de la búsqueda del género -->
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Columna central -->
+<div class="center">
+    <h2>Top 6 Artistas Más Escuchados en Deezer</h2>
+    <div class="artist-list">
+        {% for artist in top_artists %}
+            <div class="artist-item">
+                <img src="{{ artist.picture }}" alt="{{ artist.name }}" class="artist-image">
+                <p class="artist-name">{{ artist.name }}</p>
+            </div>
+        {% else %}
+            <p>No se pudieron cargar los artistas más escuchados.</p>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Columna derecha -->
+<div class="right">
+    <h2>Top 4 Canciones Globales</h2>
+    <div class="top-tracks">
+        {% if global_top_tracks %}
+            {% for track in global_top_tracks %}
+                <div class="song-block">  <!-- Aquí se agrega la clase .song-block -->
+                    <p><strong>{{ track.name }}</strong> - {{ track.artist }}</p>
+                    <a href="{{ track.url }}" target="_blank">Escuchar</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No se pudieron cargar las canciones populares.</p>
+        {% endif %}
+    </div>
+</div>
+
+        
+    </div>
+    <script>
+        // Manejar el formulario de artista
+        document.getElementById('artist-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const response = await fetch('/artist', { method: 'POST', body: formData });
+            const data = await response.json();
+            document.getElementById('artist-result').innerHTML = `
+                <p><strong>Artista:</strong> ${data.artist}</p>
+                <p><strong>Biografía:</strong> ${data.biography}</p>
+                <p><strong>Oyentes:</strong> ${data.listeners}</p>
+                <p><strong>Álbum principal:</strong> ${data.top_album}</p>
+                <p><strong>Top Tracks:</strong></p>
+                <ul>${data.top_tracks.map(track => `<li>${track}</li>`).join('')}</ul>
+            `;
+        });
+
+        // Manejar el formulario de género
+        document.getElementById('genre-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const response = await fetch('/genre', { method: 'POST', body: formData });
+            const data = await response.json();
+            if (data.error) {
+                document.getElementById('genre-result').innerHTML = `<p>${data.error}</p>`;
+            } else {
+                document.getElementById('genre-result').innerHTML = `
+                    <p><strong>Género:</strong> ${data.genre}</p>
+                    <p><strong>Canciones principales:</strong></p>
+                    <ul>${data.tracks.map(track => `
+                        <li>
+                            <strong>${track.name}</strong> - ${track.artist}
+                            (<a href="${track.url}" target="_blank">Escuchar</a>)
+                        </li>`).join('')}
+                    </ul>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
