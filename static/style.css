@@ -1,0 +1,437 @@
+/* Elimina márgenes y rellenos predeterminados en todos los elementos y ajusta el box-sizing */
+* {
+    margin: 0; /* Elimina márgenes predeterminados */
+    padding: 0; /* Elimina rellenos predeterminados */
+    box-sizing: border-box; /* Asegura que el padding y el borde no afecten el tamaño del elemento */
+}
+
+/* Configuración global */
+body, html {
+    height: 100%; /* Asegura que el cuerpo y el HTML ocupen todo el alto de la ventana */
+    font-family: Arial, sans-serif; /* Establece la fuente predeterminada */
+}
+
+/* Contenedor principal */
+.container {
+    display: flex; /* Usa flexbox para distribuir los elementos dentro del contenedor */
+    width: 100%; /* El contenedor ocupará todo el ancho */
+    height: 100vh; /* El contenedor ocupará todo el alto de la pantalla */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Columna izquierda */
+.left {
+    width: 25%; /* La columna izquierda ocupa el 25% del ancho */
+    display: flex;
+    flex-direction: column; /* Los bloques en esta columna se alinean en una dirección vertical */
+    padding: 15px; /* Espaciado interior más amplio */
+    background-color: #f9f9f9; /* Color de fondo ligeramente más claro */
+    border-radius: 8px; /* Bordes redondeados más suaves */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+}
+
+/* Bloques de la columna izquierda */
+.block {
+    flex: 1; /* Hace que cada bloque ocupe un espacio igual dentro de la columna */
+    margin-bottom: 20px; /* Espaciado entre los bloques */
+    display: flex;
+    flex-direction: column; /* Los elementos dentro de los bloques se organizan verticalmente */
+    height: 50%; /* La altura de cada bloque será la mitad del contenedor */
+    border: 1px solid #ddd; /* Borde de color gris claro */
+    border-radius: 8px; /* Bordes más redondeados */
+    overflow: hidden; /* Evita que el contenido se desborde del bloque */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transición suave para el fondo */
+}
+
+/* Estilo cuando no se ha buscado nada: Rojo para Artista y Verde para Género */
+.block.artist-empty {
+    background-color: #FFEBEB; /* Fondo rojo claro */
+    border-color: #FF6B6B; /* Borde rojo */
+}
+
+.block.genre-empty {
+    background-color: #E9F7EC; /* Fondo verde claro */
+    border-color: #4CAF50; /* Borde verde */
+}
+
+/* Sección del formulario (parte superior del bloque) */
+.form-section {
+    background-color: #f7f7f7; /* Fondo gris muy claro */
+    padding: 15px; /* Espaciado interior */
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+    width: 100%; /* Hace que el formulario ocupe todo el ancho disponible */
+    border-radius: 8px; /* Bordes redondeados */
+    text-align: center; /* Centra el contenido dentro del formulario */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+}
+
+/* Estilo del formulario */
+.form-section form {
+    display: flex; /* Usa flexbox para organizar el formulario */
+    justify-content: space-between; /* Distribuye los elementos del formulario con espacio entre ellos */
+    width: 100%; /* El formulario ocupa todo el ancho disponible */
+    gap: 15px; /* Espacio entre el input y el botón */
+}
+
+/* Estilo del input */
+.form-section input {
+    flex: 1; /* El input ocupa todo el espacio disponible */
+    padding: 12px; /* Espaciado interior más grande */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1em; /* Tamaño de fuente estándar */
+    transition: border-color 0.3s ease; /* Transición para el borde */
+}
+
+/* Estilo del botón */
+.form-section button {
+    padding: 10px 15px; /* Espaciado interior del botón */
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Texto blanco */
+    border: none; /* Elimina el borde del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 1em; /* Tamaño de fuente estándar */
+}
+
+/* Efecto hover en el botón */
+.form-section button:hover {
+    background-color: #45a049; /* Cambia el fondo del botón cuando el mouse pasa sobre él */
+}
+
+/* Contenido con scroll vertical si hay exceso de información */
+.content {
+    flex: 1; /* Hace que el contenido ocupe el resto del espacio disponible */
+    background-color: #fdfdfd; /* Color de fondo blanco */
+    padding: 15px; /* Espaciado interno más amplio */
+    overflow-y: auto; /* Agrega desplazamiento vertical si el contenido excede la altura */
+    border-top: 1px solid #ddd; /* Borde superior gris */
+}
+
+/* Quitar los puntos de las listas */
+.content ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding-left: 0; /* Elimina el relleno izquierdo */
+}
+
+/* Espaciado entre elementos de la lista */
+.content li {
+    margin-bottom: 8px; /* Espaciado entre los elementos de la lista */
+    font-size: 1.1em; /* Tamaño de texto ligeramente mayor */
+    color: #333; /* Color de texto estándar */
+    line-height: 1.6; /* Mayor altura de línea para una mejor lectura */
+}
+
+/* Estilo del enlace */
+.content a {
+    color: #4CAF50; /* Color del enlace */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+/* Efecto hover en los enlaces */
+.content a:hover {
+    text-decoration: underline; /* Subraya el enlace al pasar el mouse */
+    color: #388E3C; /* Color del enlace cuando se hace hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Columna central */
+.center {
+    width: 50%; /* La columna central ocupa el 50% del ancho */
+    background-color: #e0e0e0; /* Fondo gris claro */
+    padding: 20px; /* Espaciado interno */
+    margin: 10px; /* Margen alrededor de la columna */
+}
+
+/* Título de los artistas */
+.center h2 {
+    text-align: center; /* Centra el título */
+    font-size: 1.8em; /* Tamaño de fuente mayor */
+    color: #333; /* Color del texto */
+    margin-bottom: 20px; /* Espaciado inferior */
+    font-weight: bold;
+}
+
+/* Estilo de la lista de artistas */
+.artist-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+    gap: 20px; /* Espacio entre los elementos */
+    justify-items: center; /* Centra los elementos dentro de sus celdas */
+}
+
+/* Estilo de cada artista */
+.artist-item {
+    width: 100%; /* Asegura que cada item ocupe toda la celda */
+    text-align: center;
+    background-color: #fff; /* Fondo blanco */
+    padding: 20px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para el hover */
+}
+
+/* Efecto hover en los contenedores de los artistas */
+.artist-item:hover {
+    transform: translateY(-5px); /* Desplaza ligeramente hacia arriba al pasar el mouse */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el mouse */
+}
+
+/* Imagen del artista */
+.artist-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px; /* Bordes redondeados para la imagen */
+    margin-bottom: 15px; /* Espacio debajo de la imagen */
+}
+
+/* Nombre del artista */
+.artist-name {
+    font-size: 1.3em; /* Tamaño de fuente mayor */
+    color: #333; /* Color del texto */
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Columna derecha */
+.right {
+    width: 25%; /* La columna derecha ocupa el 25% del ancho */
+    background-color: #f0f0f0; /* Fondo gris claro */
+    padding: 20px; /* Espaciado interno */
+    margin: 10px; /* Margen alrededor de la columna */
+    display: flex;
+    flex-direction: column; /* Los elementos dentro de la columna derecha se organizan verticalmente */
+    gap: 20px; /* Espacio entre las divisiones de las canciones */
+}
+
+/* Estilo de cada división de canción en la columna derecha */
+.song-block {
+    background-color: #fff; /* Fondo blanco para las divisiones de canciones */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados más pronunciados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera y más difusa */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+/* Efecto hover en las divisiones de las canciones */
+.song-block:hover {
+    transform: translateY(-8px); /* Desplaza ligeramente hacia arriba la división al pasar el mouse */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el mouse */
+}
+
+/* Estilo del título de cada canción */
+.song-block h3 {
+    margin-bottom: 15px; /* Espaciado inferior mayor */
+    font-size: 1.4em; /* Aumenta el tamaño de la fuente */
+    font-weight: bold; /* Hace el título más destacado */
+    color: #333; /* Color del texto */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+}
+
+/* Estilo de la lista de canciones */
+.top-tracks {
+    display: flex;
+    flex-direction: column; /* Organiza las canciones en una columna */
+    gap: 15px; /* Espacio entre las canciones */
+}
+
+/* Estilo de cada canción en la lista */
+.song-block li {
+    font-size: 1.2em; /* Aumenta el tamaño de la fuente */
+    color: #555; /* Color de texto más suave */
+    line-height: 1.6; /* Aumenta el interlineado para una mejor lectura */
+    font-weight: 500; /* Peso de fuente medio */
+    margin-bottom: 10px; /* Espaciado entre canciones */
+    transition: color 0.3s ease; /* Transición para el color */
+}
+
+/* Efecto hover sobre cada canción */
+.song-block li:hover {
+    color: #4CAF50; /* Cambia el color de la canción al pasar el mouse */
+}
+
+/* Estilo del enlace a la canción */
+.song-block a {
+    color: #4CAF50; /* Color del enlace */
+    font-size: 1.1em; /* Tamaño de la fuente ligeramente mayor */
+    text-decoration: none; /* Elimina el subrayado */
+    font-weight: 600; /* Peso de la fuente más fuerte */
+}
+
+/* Efecto hover en los enlaces de las canciones */
+.song-block a:hover {
+    text-decoration: underline; /* Subraya el enlace al pasar el mouse */
+    color: #388E3C; /* Cambio de color al hacer hover */
+}
+
+/* Encabezados */
+h2 {
+    margin-bottom: 20px; /* Espaciado inferior mayor */
+    font-size: 1.5em; /* Tamaño de fuente mayor */
+    font-weight: bold; /* Negrita para hacer más destacada la sección */
+    color: #333; /* Color del texto */
+    text-align: center; /* Centra el encabezado */
+}
+
