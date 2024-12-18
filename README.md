@@ -558,6 +558,134 @@ Cuando se consulta las canciones más populares a nivel global, la respuesta JSO
   {"error": "No se pudo establecer conexión con el servidor de Last.fm."}
   ```
 
+## Deezer API
+
+Esta sección describe cómo se utiliza la API de Spotify en el proyecto para obtener canciones basadas en géneros musicales, mediante la biblioteca [Spotipy](https://spotipy.readthedocs.io/).
+
+### Función: `get_top_artists`
+
+Esta función permite obtener información sobre los artistas más populares de Deezer.
+
+### Configuración Previa
+
+No se requiere autenticación ni claves de API para acceder al endpoint utilizado en este proyecto. Sin embargo, asegúrate de que tu entorno tenga acceso a internet y que la biblioteca requests esté instalada.
+
+#### Descripción
+
+La función realiza una solicitud HTTP al endpoint público de Deezer y procesa los datos para devolver una lista de los 6 artistas más escuchados, incluyendo su nombre y la URL de su imagen.
+
+#### Definición
+
+```python
+def get_top_artists():
+    """
+    Obtiene los 6 artistas más populares desde la API de Deezer.
+
+    Returns:
+        list: Una lista de diccionarios con los siguientes datos:
+            - "name": (str) Nombre del artista.
+            - "picture": (str) URL de la imagen del artista.
+        Si la solicitud falla, devuelve una lista vacía.
+    """
+
+```
+
+#### Flujo de Trabajo
+
+1. **Solicitar datos:**  
+   La función realiza una solicitud HTTP al endpoint https://api.deezer.com/chart/0/artists utilizando la biblioteca requests.
+   ```python
+   response = requests.get("https://api.deezer.com/chart/0/artists")
+   ```
+
+2. **Procesar la respuesta:**  
+   Si la solicitud es exitosa (status_code 200), se procesan los datos para extraer el nombre y la URL de la imagen de los primeros 6 artistas.
+   ```python
+   data = response.json()
+   top_artists = data.get("data", [])[:6]
+   artists_info = [
+      {"name": artist.get("name"), "picture": artist.get("picture")}
+      for artist in top_artists
+   ]
+   ```
+
+3. **Manejo de errores:**  
+   Si la solicitud falla, la función imprime el código de estado HTTP correspondiente y devuelve una lista vacía.
+
+   ```python
+   if response.status_code != 200:
+    print(f"Error al obtener los datos: {response.status_code}")
+    return []
+   ```
+
+#### Ejemplo de uso
+
+   ```python
+   # Llamar a la función para obtener los 6 artistas más populares
+   artistas = get_top_artists()
+
+   # Imprimir los resultados
+   if artistas:
+      print("Artistas más populares:")
+      for artista in artistas:
+          print(f"Nombre: {artista['name']}, Imagen: {artista['picture']}")
+   else:
+      print("No se pudieron obtener los artistas.")
+
+   ```
+
+#### Ejemplo de Respuesta
+
+Cuando se obtiene la lista de los 6 artistas más populares, la respuesta de la API será algo como esto:
+
+```json
+{
+  "data": [
+    {
+      "name": "Bad Bunny",
+      "picture": "https://api.deezer.com/artist/10583405/image"
+    },
+    {
+      "name": "J Balvin",
+      "picture": "https://api.deezer.com/artist/4860761/image"
+    },
+    {
+      "name": "Rauw Alejandro",
+      "picture": "https://api.deezer.com/artist/11289472/image"
+    },
+    {
+      "name": "Myke Towers",
+      "picture": "https://api.deezer.com/artist/12029862/image"
+    },
+    {
+      "name": "Farruko",
+      "picture": "https://api.deezer.com/artist/614223/image"
+    },
+    {
+      "name": "Maluma",
+      "picture": "https://api.deezer.com/artist/1424602/image"
+    }
+  ]
+}
+
+```
+
+#### Posibles Errores
+
+- **Conexión fallida o API inaccesible::**  
+  Si no se puede establecer conexión con la API, se imprime el mensaje:
+  ```json
+  {
+    "error": "No se pudo obtener los datos de la API.",
+  }
+  ```
+
+- **Respuesta vacía:**
+  Si la respuesta no contiene datos esperados, la lista devuelta estará vacía.
+
+
+
+
 
 
 
