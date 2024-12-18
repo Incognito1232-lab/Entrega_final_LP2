@@ -17,7 +17,7 @@ def home():
     global_top_tracks = get_global_top_tracks_html(limit=4)
     
     # Obtener los artistas más populares desde Deezer
-    top_artists = dezzerapi.get_top_artists()
+    top_artists = deezerapi.get_top_artists()
     
     # Renderizar la plantilla HTML con los datos obtenidos
     return render_template("index.html", global_top_tracks=global_top_tracks, top_artists=top_artists)
