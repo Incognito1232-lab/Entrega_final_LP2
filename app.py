@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from spotifyapi import get_top_tracks_by_genre
 from lastfmapi import get_artist_info, get_top_tracks, get_top_album, get_global_top_tracks_html
-import dezzerapi  # Importamos el archivo para interactuar con la API de Deezer
+import deezerapi  # Importamos el archivo para interactuar con la API de Deezer
 
 # Inicialización de la aplicación Flask
 app = Flask(__name__)
