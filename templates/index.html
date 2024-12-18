@@ -13,7 +13,7 @@
             <!-- Bloque 1: Buscar artista -->
             <div class="block">
                 <div class="form-section">
-                    <h2>Ingresar Artista</h2>
+                    <h2>¡Ingresa a tu artista!</h2>
                     <form id="artist-form">
                         <input type="text" name="artist_name" placeholder="Nombre del artista">
                         <button type="submit">Buscar</button>
@@ -26,9 +26,9 @@
             <!-- Bloque 2: Buscar género -->
             <div class="block">
                 <div class="form-section">
-                    <h2>Introducir Género</h2>
+                    <h2>¡Te recomendamos escucharlas!</h2>
                     <form id="genre-form">
-                        <input type="text" name="genre_name" placeholder="Nombre del género">
+                        <input type="text" name="genre_name" placeholder="Género musical de interés">
                         <button type="submit">Buscar</button>
                     </form>
                 </div>
@@ -59,7 +59,7 @@
 
         <!-- Columna central -->
 <div class="center">
-    <h2>Top 6 Artistas Más Escuchados en Deezer</h2>
+    <h2>TOP 6 ARTISTAS DEEZER</h2>
     <div class="artist-list">
         {% for artist in top_artists %}
             <div class="artist-item">
@@ -99,7 +99,7 @@
 
         <!-- Columna derecha -->
 <div class="right">
-    <h2>Top 4 Canciones Globales</h2>
+    <h2>TOP 4 HITS DEEZER USA</h2>
     <div class="top-tracks">
         {% if global_top_tracks %}
             {% for track in global_top_tracks %}

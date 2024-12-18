@@ -8,7 +8,7 @@
 /* Configuración global */
 body, html {
     height: 100%; /* Asegura que el cuerpo y el HTML ocupen todo el alto de la ventana */
-    font-family: Arial, sans-serif; /* Establece la fuente predeterminada */
+    font-family: 'Roboto', sans-serif; /* Establece la fuente Roboto como principal y Sans-serif como secundaria */
 }
 
 /* Contenedor principal */
@@ -18,48 +18,7 @@ body, html {
     height: 100vh; /* El contenedor ocupará todo el alto de la pantalla */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Columna izquierda */
+/* ------------------Columna izquierda------------------ */ 
 .left {
     width: 25%; /* La columna izquierda ocupa el 25% del ancho */
     display: flex;
@@ -126,7 +85,7 @@ body, html {
 /* Estilo del botón */
 .form-section button {
     padding: 10px 15px; /* Espaciado interior del botón */
-    background-color: #4CAF50; /* Color de fondo verde */
+    background-color: #20b986; /* Color de fondo cambiado a #20b986 */
     color: white; /* Texto blanco */
     border: none; /* Elimina el borde del botón */
     border-radius: 5px; /* Bordes redondeados */
@@ -136,7 +95,7 @@ body, html {
 
 /* Efecto hover en el botón */
 .form-section button:hover {
-    background-color: #45a049; /* Cambia el fondo del botón cuando el mouse pasa sobre él */
+    background-color: #20b986; /* Cambia el fondo del botón cuando el mouse pasa sobre él */
 }
 
 /* Contenido con scroll vertical si hay exceso de información */
@@ -164,63 +123,17 @@ body, html {
 
 /* Estilo del enlace */
 .content a {
-    color: #4CAF50; /* Color del enlace */
+    color: #20b986; /* Color del enlace cambiado a #20b986 */
     text-decoration: none; /* Elimina el subrayado */
 }
 
 /* Efecto hover en los enlaces */
 .content a:hover {
     text-decoration: underline; /* Subraya el enlace al pasar el mouse */
-    color: #388E3C; /* Color del enlace cuando se hace hover */
+    color: #20b986; /* Color del enlace cuando se hace hover */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Columna central */
+/* ------------------Columna central------------------ */
 .center {
     width: 50%; /* La columna central ocupa el 50% del ancho */
     background-color: #e0e0e0; /* Fondo gris claro */
@@ -277,84 +190,7 @@ body, html {
     font-weight: bold;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Columna derecha */
+/* ------------------Columna derecha------------------ */
 .right {
     width: 25%; /* La columna derecha ocupa el 25% del ancho */
     background-color: #f0f0f0; /* Fondo gris claro */
@@ -409,12 +245,12 @@ body, html {
 
 /* Efecto hover sobre cada canción */
 .song-block li:hover {
-    color: #4CAF50; /* Cambia el color de la canción al pasar el mouse */
+    color: #20b986; /* Cambia el color de la canción al pasar el mouse */
 }
 
 /* Estilo del enlace a la canción */
 .song-block a {
-    color: #4CAF50; /* Color del enlace */
+    color: #20b986; /* Color del enlace */
     font-size: 1.1em; /* Tamaño de la fuente ligeramente mayor */
     text-decoration: none; /* Elimina el subrayado */
     font-weight: 600; /* Peso de la fuente más fuerte */
@@ -423,7 +259,7 @@ body, html {
 /* Efecto hover en los enlaces de las canciones */
 .song-block a:hover {
     text-decoration: underline; /* Subraya el enlace al pasar el mouse */
-    color: #388E3C; /* Cambio de color al hacer hover */
+    color: #20b986; /* Cambio de color al hacer hover */
 }
 
 /* Encabezados */
