@@ -560,7 +560,7 @@ Cuando se consulta las canciones más populares a nivel global, la respuesta JSO
 
 ## Deezer API
 
-Esta sección describe cómo se utiliza la API de Spotify en el proyecto para obtener canciones basadas en géneros musicales, mediante la biblioteca [Spotipy](https://spotipy.readthedocs.io/).
+Esta sección describe cómo se utiliza la API de Deezer en el proyecto para obtener los artistas más populares, mediante la biblioteca [requests](https://requests.readthedocs.io/).
 
 ### Función: `get_top_artists`
 
