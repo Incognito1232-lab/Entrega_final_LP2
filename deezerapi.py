@@ -1,6 +1,7 @@
 import requests
 
 def get_top_artists():
+    
     """
     Obtiene los 6 artistas más populares desde la API de Deezer.
 
@@ -14,6 +15,7 @@ def get_top_artists():
             - "picture": (str) URL de la imagen del artista.
         Si la solicitud falla, devuelve una lista vacía.
     """
+    
     # Endpoint de la API de Deezer para obtener los artistas más escuchados
     url = "https://api.deezer.com/chart/0/artists"
 
