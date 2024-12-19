@@ -8,7 +8,7 @@
 /* Configuración global */
 body, html {
     height: 100%; /* Asegura que el cuerpo y el HTML ocupen todo el alto de la ventana */
-    font-family: 'Roboto', sans-serif; /* Establece la fuente Roboto como principal y Sans-serif como secundaria */
+    font-family: 'Trebuchet MS', sans-serif; /* Establece la fuente Trebuchet MS como principal y Sans-serif como secundaria */
 }
 
 /* Contenedor principal */
